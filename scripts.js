@@ -28,21 +28,37 @@ $(document).ready(function () {
     });
 
     // changing the colors of the left side arrow on button hover 
-    $('.arrowleft, .leftArrow').hover(function () {
+    $('.leftArrow').hover(function () {
         $('.arrowleft').css("color", "#838584");
     }, function () {
         $('.arrowleft').css("color", "#363837");
     });
 
+    //
+    $('.arrowleft').hover(function () {
+        $('.arrowleft').css("color", "#838584");
+    }, function () {}
+    );
+
     // changing the colors of the right side arrow on button hover 
-    $('.arrowright, .rightArrow').hover(function () {
+    $('.rightArrow').hover(function () {
         $('.arrowright').css("color", "#838584");
     }, function () {
         $('.arrowright').css("color", "#363837");
     });
 
+    $('.arrowright').hover(function () {
+        $('.arrowright').css("color", "#838584");
+    }, function () {}
+    );
 
-
+  /*    
+    $('#photo').attr('src',imagesData[currentPhoto].photo);
+    $("main").hide();
+    $(".mainFrame").hide();
+*/
+    
+    
     //left button steps backwards images
     $('#idArrowButtonL').click(function () {
         if (currentPhoto === 0) {
@@ -76,9 +92,6 @@ $(document).ready(function () {
     });
 
 });
-
-
-
 
 //getting all image files from folder into array
 for (i = 0; i !== 25; i++) {
