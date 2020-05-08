@@ -1,0 +1,134 @@
+main {
+    position: absolute;
+    background-image : url(./Background/background.jpg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    color: #363837;
+}
+
+.fullFrame, .mainFrame, .leftArrow, .rightArrow {
+    height: 40em;
+}
+
+.mainFrame, .subFrame, .mainImage {
+    width: 80em;
+}
+
+.fullFrame {
+    position: relative;
+    display: flex;
+    top: 13.5em;
+    left: 0;
+    width: 90em;
+    /*border: 1px solid black;*/ /* ruler for sizing div boxes */
+}
+
+.mainFrame {
+    position: relative;
+    display: flex;
+    /*border: 1px solid orange;*/ /* ruler for sizing div boxes */
+}
+
+.subFrame {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 10em;
+    padding-left: 2em;
+    line-height: 1.2em;
+    background: black;
+    opacity: 0;
+    /*border: 1px solid red;*/ /* ruler for sizing div boxes */
+}
+
+.leftArrow, .rightArrow {
+    position: relative;
+    display: flex;
+    width: 5em;
+    /*border: 1px solid lime; */ /* ruler for sizing div boxes */
+}
+
+.arrowButtonL, .arrowButtonR {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    background: lightgray;
+}
+
+.arrowleft, .arrowright {
+    position: relative;
+    top: 3.4em;
+    margin-left: 0.1em;
+    font-size: 5em;
+}
+
+.mainImage {
+    height: auto;
+}
+
+/*scrollbar-setup */
+
+
+/* total width */
+.thumbBox::-webkit-scrollbar {
+    width: 6px;
+    height: 1em;
+}
+
+/* background of the scrollbar except button or resizer */
+.thumbBox::-webkit-scrollbar-track {
+/* transparent as empty */
+}
+
+/* scrollbar itself */
+.thumbBox::-webkit-scrollbar-thumb {
+    background-color:#454545;
+}
+
+.thumbBox {
+    position: absolute;
+    display: flex;
+    width: 90em;
+    height: 10em;
+    top: 54em;
+    overflow: auto;
+    /*border: 1px solid black;*/
+}
+
+ul {
+    display: flex;  
+    position: relative;
+}
+
+li {
+    margin: 0.3em;  
+    list-style-type:none;
+    overflow: hidden;
+    /*border: 1px solid black;*/
+}
+
+li:hover {
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+img {
+    border-radius: 0.3em;  /* Rounded border */
+    padding: 0; /* Some padding */
+    width: 6em; /* Set a small width */
+    height: 6em;
+
+}
+
+.thumbButtons {
+    background: #4a4946;
+    margin-top: -0.3em;
+    margin-left: -0.6em;
+    border-radius: 0.3em;  /* Rounded border */
+    width: 6.2em;
+    height: 6em;
+    cursor: pointer;
+}
