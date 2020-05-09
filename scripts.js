@@ -1,12 +1,9 @@
 console.log('Script is loaded.');
 
-let currentPhoto = 0; //counter of photo number
-let imagesData = []; //array
-let thumbImages = []; //array
 let folder = 'images/'; //folder path
 let fileExtension = ".jpg"; //image format
-let photoNumber;
-let clickedButtonNumber;
+let currentPhoto = 0; //counter of photo number
+let imagesData = []; //array
 
 $(document).ready(function () {
     $("#idSubFrame").hover(function () {
@@ -56,14 +53,10 @@ $(document).ready(function () {
     $('#idArrowButtonL').click(function () {
         if (currentPhoto === 0) {
             currentPhoto = 24;
-            photoNumber = 25;
-            console.log(photoNumber);
             loadPhoto(currentPhoto);
 
         } else {
-            photoNumber = currentPhoto;
             currentPhoto = currentPhoto - 1;
-            console.log(photoNumber);
             loadPhoto(currentPhoto);
         }
     });
@@ -72,15 +65,10 @@ $(document).ready(function () {
     $('#idArrowButtonR').click(function () {
         if (currentPhoto === 24) {
             currentPhoto = 0;
-            photoNumber = 1;
-            console.log(photoNumber);
             loadPhoto(currentPhoto);
         } else {
             currentPhoto = currentPhoto + 1;
-            photoNumber = currentPhoto + 1;
-            console.log(photoNumber);
             loadPhoto(currentPhoto);
-
         }
     });
 
@@ -94,7 +82,7 @@ $(document).ready(function () {
 
 //getting all image files from folder into array
 for (i = 0; i !== 25; i++) {
-    photoNumber = i + 1;
+    let photoNumber = i + 1;
     imagesData[i] = {
         photo: (folder + photoNumber + fileExtension),
         title: (photoNumber + ' Title'),
