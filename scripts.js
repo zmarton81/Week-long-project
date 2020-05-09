@@ -37,7 +37,7 @@ $(document).ready(function () {
     //
     $('.arrowleft').hover(function () {
         $('.arrowleft').css("color", "#838584");
-    }, function () {}
+    }, function () { }
     );
 
     // changing the colors of the right side arrow on button hover 
@@ -49,16 +49,9 @@ $(document).ready(function () {
 
     $('.arrowright').hover(function () {
         $('.arrowright').css("color", "#838584");
-    }, function () {}
+    }, function () { }
     );
 
-  /*    
-    $('#photo').attr('src',imagesData[currentPhoto].photo);
-    $("main").hide();
-    $(".mainFrame").hide();
-*/
-    
-    
     //left button steps backwards images
     $('#idArrowButtonL').click(function () {
         if (currentPhoto === 0) {
@@ -91,6 +84,12 @@ $(document).ready(function () {
         }
     });
 
+    //open image in full size in new window upon clicking on mainFrame
+    $('#photo').click(function () {
+        var loc = $(this).attr('src');
+        window.open(loc, '_blank');
+    });
+
 });
 
 //getting all image files from folder into array
@@ -108,7 +107,7 @@ loadPhoto();
 
 // loading thumbnails
 for (i = 0; i !== 25; i++) {
-    $('ul').append('<li><button class="thumbButtons" id="' + i + 'idThumbButtons"><img id="thumbnail-' + i + '"></button></li>');
+    $('ul').append('<li><button class="thumbButtons" id="' + i + 'idThumbButtons"><img class="thumbImage" id="thumbnail-' + i + '"></button></li>');
     $('#thumbnail-' + i).attr('src', imagesData[i].photo);
 };
 
