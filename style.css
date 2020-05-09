@@ -1,11 +1,14 @@
 main {
     position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background-image : url(./Background/background.jpg);
-    background-position:fixed;
-    background-repeat:no-repeat;
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -75,8 +78,7 @@ main {
     height: auto;
 }
 
-/*scrollbar-setup */
-
+/* start of scrollbar-setup */
 
 /* total width */
 .thumbBox::-webkit-scrollbar {
@@ -93,6 +95,8 @@ main {
 .thumbBox::-webkit-scrollbar-thumb {
     background-color:#454545;
 }
+
+/* end of scrollbar-setup */
 
 .thumbBox {
     position: absolute;
@@ -122,19 +126,15 @@ li:hover {
 }
 
 .thumbImage {
-    border-radius: 0.3em;  /* Rounded border */
-    padding: 0; /* Some padding */
     width: 6em; /* Set a small width */
     height: 6em;
-
-}
+} 
 
 .thumbButtons {
     background: #4a4946;
     margin-top: -0.3em;
     margin-left: -0.6em;
-    border-radius: 0.3em;  /* Rounded border */
-    width: 6.2em;
+    width: 6.5em;
     height: 6em;
     cursor: pointer;
 }

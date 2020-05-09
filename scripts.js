@@ -52,7 +52,6 @@ $(document).ready(function () {
         if (currentPhoto === 0) {
             currentPhoto = 24;
             loadPhoto(currentPhoto);
-
         } else {
             currentPhoto = currentPhoto - 1;
             loadPhoto(currentPhoto);
