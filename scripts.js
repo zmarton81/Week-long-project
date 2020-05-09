@@ -19,7 +19,6 @@ $(document).ready(function () {
         currentPhoto = parseInt(index);
         $(this).prepend(imagesData[currentPhoto].title);
         $(this).css({ 'color': 'white', 'font-weight': '800', 'font-style': 'italic' })
-        // $(this).find('.caption').slideDown(250);
     }, function () {
         $(this).html($('#thumbnail-' + currentPhoto).attr('src', imagesData[currentPhoto].photo));
     });
@@ -31,7 +30,6 @@ $(document).ready(function () {
         $('.arrowleft').css("color", "#363837");
     });
 
-    //
     $('.arrowleft').hover(function () {
         $('.arrowleft').css("color", "#838584");
     }, function () { }
@@ -72,7 +70,7 @@ $(document).ready(function () {
         }
     });
 
-    //open image in full size in new window upon clicking on mainFrame
+    //open full size image in new window when mainFrame is clicked
     $('#photo').click(function () {
         var loc = $(this).attr('src');
         window.open(loc, '_blank');
@@ -80,7 +78,7 @@ $(document).ready(function () {
 
 });
 
-//getting all image files from folder into array
+//load all image files (path, title, description) from folder into array
 for (i = 0; i !== 25; i++) {
     let photoNumber = i + 1;
     imagesData[i] = {
@@ -90,10 +88,10 @@ for (i = 0; i !== 25; i++) {
     };
 };
 
-//loading first frame
+//load first frame
 loadPhoto();
 
-// loading thumbnails
+// load thumbnails
 for (i = 0; i !== 25; i++) {
     $('ul').append('<li><button class="thumbButtons" id="' + i + 'idThumbButtons"><img class="thumbImage" id="thumbnail-' + i + '"></button></li>');
     $('#thumbnail-' + i).attr('src', imagesData[i].photo);
@@ -106,7 +104,7 @@ $('ul li').delegate('button', 'click', function () {
     loadPhoto();
 });
 
-// loading images with details after clicks
+// load image with details
 function loadPhoto() {
     $('#photo').attr('src', imagesData[currentPhoto].photo);
     $('#photo-title').html(imagesData[currentPhoto].title);
