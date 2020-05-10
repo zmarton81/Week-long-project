@@ -13,16 +13,6 @@ $(document).ready(function () {
         $(this).css("opacity", "0");
     });
 
-    //show image title when hover on thumbnails
-    $("button").hover(function () {
-        var index = $(this).attr("id");
-        currentPhoto = parseInt(index);
-        $(this).prepend(imagesData[currentPhoto].title);
-        $(this).css({ 'color': 'white', 'font-weight': '800', 'font-style': 'italic' })
-    }, function () {
-        $(this).html($('#thumbnail-' + currentPhoto).attr('src', imagesData[currentPhoto].photo));
-    });
-
     // changing the colors of the left side arrow on button hover 
     $('.leftArrow').hover(function () {
         $('.arrowleft').css("color", "#838584");
@@ -82,24 +72,32 @@ for (i = 0; i !== 25; i++) {
     let photoNumber = i + 1;
     imagesData[i] = {
         photo: (folder + photoNumber + fileExtension),
-        title: (photoNumber + ' Title'),
-        description: (photoNumber + ' Description'),
+        title: ('Title #' + photoNumber),
+        description: ('Description #' + photoNumber),
     };
 };
 
 //load first frame
 loadPhoto();
 
-// load thumbnails
+// load in thumbnails
 for (i = 0; i !== 25; i++) {
-    $('ul').append('<li><button class="thumbButtons" id="' + i + 'idThumbButtons"><img class="thumbImage" id="thumbnail-' + i + '"></button></li>');
+    $('ul').append('<li><a class="thumbButtons" id="' + i + '"><img class="thumbImages" id="thumbnail-' + i + '"><span class="hiddenInfo" id="' + i + '">' + imagesData[i].title + '</span></a></li>');
     $('#thumbnail-' + i).attr('src', imagesData[i].photo);
 };
 
+$('.thumbImages').hover(function () {
+    // currentPhoto = parseInt(index); if it wouldnt be only a number I need to convert it into number
+    $(this).css({'display' : 'block', 'width' : '5em', 'height' : '5em', 'border' : '0.2em solid white'});
+    $(this).next('.hiddenInfo').css({'display' : 'block', 'position' : 'absolute', 'top' : '-0.8em', 'padding' : '.3em', 'white-space' : 'nowrap', 'background' : 'rgba(41, 41, 41, 0.8', 'color' : 'white', 'font-size' : '1em', 'font-style' : '', 'font-weight' : '' } )
+}, function () {
+    $(this).css({'width' : '4em', 'height' : '4em', 'border' : '0.2em solid white'});
+    $('.hiddenInfo').css({'display' : 'none'} )
+});
+
 //load thumbnail image into mainFrame on click
-$('ul li').delegate('button', 'click', function () {
+$('ul li').delegate('.thumbButtons', 'click', function () {
     currentPhoto = $(this).parent('li').index();
-    console.log(currentPhoto);
     loadPhoto();
 });
 

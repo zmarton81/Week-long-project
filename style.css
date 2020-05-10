@@ -100,10 +100,10 @@ main {
     position: absolute;
     display: flex;
     width: 90em;
-    height: 10em;
-    top: 54em;
+    height: 11em;
+    top: 53.5em;
     overflow: auto;
-    /*border: 1px solid black;*/
+/*  border: 1px solid orange; */
 }
 
 ul {
@@ -112,27 +112,24 @@ ul {
 }
 
 li {
-    margin: 0.3em;  
+    padding-top: 1.2em;
+    margin-left: 0.3em;  
+    margin-right: 0.3em;
     list-style-type:none;
     overflow: hidden;
-    /*border: 1px solid black;*/
+    float: center;
+ 
 }
 
-li:hover {
-    padding: 0.5em;
-    margin-top: 0.5em;
-}
-
-.thumbImage {
-    width: 6em; /* Set a small width */
-    height: 6em;
-} 
-
-.thumbButtons {
-    background: #4a4946;
-    margin-top: -0.3em;
-    margin-left: -0.6em;
-    width: 6.5em;
-    height: 6em;
+.thumbImages {
+    position: relative;
+    top: 0;
+    width: 4em; /* Set a small width */
+    height: 4em;
+    text-decoration: none;
+  /*border-radius: 0.3em;*/
+    border: 0.2em solid white;
     cursor: pointer;
-}
+ }
+
+.thumbButtons span {display: none;}
