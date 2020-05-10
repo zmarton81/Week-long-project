@@ -2,7 +2,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    background-image : url(./Background/background.jpg);
+    background-image : url("background/background.jpg");
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
