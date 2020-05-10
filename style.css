@@ -65,11 +65,20 @@ main {
     background: lightgray;
 }
 
-.arrowleft, .arrowright {
+/* arrows position */
+.leftSideArrow, .rightSideArrow {
     position: relative;
-    top: 3.4em;
+    top: 47%;
+    left: 1em;
     margin-left: 0.1em;
-    font-size: 5em;
+    width: 2.5em;
+    height: auto;
+    fill: #363837;
+}
+/* right side arrow rotation */
+.rightSideArrow {
+    margin-left: 0.3em;
+    transform: rotate(180deg); 
 }
 
 .mainImage {

@@ -5,6 +5,7 @@ let fileExtension = ".jpg"; //image format
 let currentPhoto = 0; //counter of photo number
 let imagesData = []; //array
 
+
 $(document).ready(function () {
     $("#idSubFrame").hover(function () {
         // subfolder pops up and back when mouse moves over it
@@ -13,29 +14,32 @@ $(document).ready(function () {
         $(this).css("opacity", "0");
     });
 
+    
     // changing the colors of the left side arrow on button hover 
-    $('.leftArrow').hover(function () {
-        $('.arrowleft').css("color", "#838584");
+    $('.arrowButtonL').hover(function () {
+        $('.cls-1').attr('fill', '#838584');
     }, function () {
-        $('.arrowleft').css("color", "#363837");
+        $('.cls-1').attr('fill', '#363837');
     });
 
-    $('.arrowleft').hover(function () {
-        $('.arrowleft').css("color", "#838584");
-    }, function () { }
-    );
+    $('.leftSideArrow').hover(function () {
+        $('.cls-1').attr('fill', '#838584');
+    }, function () {
+    });
+
 
     // changing the colors of the right side arrow on button hover 
-    $('.rightArrow').hover(function () {
-        $('.arrowright').css("color", "#838584");
+    $('.arrowButtonR').hover(function () {
+        $('.cls-2').attr('fill', '#838584');
     }, function () {
-        $('.arrowright').css("color", "#363837");
+        $('.cls-2').attr('fill', '#363837');
     });
 
-    $('.arrowright').hover(function () {
-        $('.arrowright').css("color", "#838584");
-    }, function () { }
-    );
+    $('.rightSideArrow').hover(function () {
+        $('.cls-2').attr('fill', '#838584');
+    }, function () {
+    });
+
 
     //left button steps backwards images
     $('#idArrowButtonL').click(function () {
@@ -48,6 +52,7 @@ $(document).ready(function () {
         }
     });
 
+
     //right button steps forward images
     $('#idArrowButtonR').click(function () {
         if (currentPhoto === 24) {
@@ -59,6 +64,7 @@ $(document).ready(function () {
         }
     });
 
+
     //open full size image in new window when mainFrame is clicked
     $('#photo').click(function () {
         var loc = $(this).attr('src');
@@ -66,6 +72,7 @@ $(document).ready(function () {
     });
 
 });
+
 
 //load all image files (path, title, description) from folder into array
 for (i = 0; i !== 25; i++) {
@@ -77,6 +84,7 @@ for (i = 0; i !== 25; i++) {
     };
 };
 
+
 //load first frame
 loadPhoto();
 
@@ -86,20 +94,23 @@ for (i = 0; i !== 25; i++) {
     $('#thumbnail-' + i).attr('src', imagesData[i].photo);
 };
 
+
 $('.thumbImages').hover(function () {
     // currentPhoto = parseInt(index); if it wouldnt be only a number I need to convert it into number
-    $(this).css({'display' : 'block', 'width' : '5em', 'height' : '5em', 'border' : '0.2em solid white'});
-    $(this).next('.hiddenInfo').css({'display' : 'block', 'position' : 'absolute', 'top' : '-0.8em', 'padding' : '.3em', 'white-space' : 'nowrap', 'background' : 'rgba(41, 41, 41, 0.8', 'color' : 'white', 'font-size' : '1em', 'font-style' : '', 'font-weight' : '' } )
+    $(this).css({ 'display': 'block', 'width': '5em', 'height': '5em', 'border': '0.2em solid white' });
+    $(this).next('.hiddenInfo').css({ 'display': 'block', 'position': 'absolute', 'top': '-0.8em', 'padding': '.3em', 'white-space': 'nowrap', 'background': 'rgba(41, 41, 41, 0.8', 'color': 'white', 'font-size': '1em', 'font-style': '', 'font-weight': '' })
 }, function () {
-    $(this).css({'width' : '4em', 'height' : '4em', 'border' : '0.2em solid white'});
-    $('.hiddenInfo').css({'display' : 'none'} )
+    $(this).css({ 'width': '4em', 'height': '4em', 'border': '0.2em solid white' });
+    $('.hiddenInfo').css({ 'display': 'none' })
 });
+
 
 //load thumbnail image into mainFrame on click
 $('ul li').delegate('.thumbButtons', 'click', function () {
     currentPhoto = $(this).parent('li').index();
     loadPhoto();
 });
+
 
 // load image with details
 function loadPhoto() {
